@@ -1,0 +1,61 @@
+# DOMAIN ADAPTATION
+# This the config file for experiments adapting images from PubMed to WPI.
+# the main changes are the source and target root directory and image extensions
+# Rest is similar to other config files. We are giving only basic experiment
+# settings. The experiment settings of the modules can be followed from the report
+
+PROJECT:
+  # comments for the weight and biases copied from https://docs.wandb.ai/ref/python/init
+  # Weight and biases
+  # whether to use WandB for training/testing
+  WANDB: False
+  PROJECT_NAME: 'CDDOD'
+  # A short display name for this run, which is how you'll identify this run in the UI.
+  # By default, these names are generated randomly.
+  EXPERIMENT_NAME: 'YOUR_EXPERIMENT_NAME'
+  # Specify a group to organize individual runs into a larger experiment.
+  # For example, you might be doing cross validation, or you might have multiple jobs that
+  # train and evaluate a model against different test sets.
+  GROUP: 'YOUR_GROUP_NAME_OF_EXPERIMENT'
+  # Specify the type of run, which is useful when you're grouping runs together
+  # into larger experiments using group. For example, you might have multiple jobs in a group,
+  # with job types like train and eval. Setting this makes it easy to filter and
+  # group similar runs together in the WandB user interface.
+  JOB_TYPE: 'train'
+  WANDB_TOKEN: "YOUR_WANDB_TOKEN"
+  OUTPUT_DIR: '/logs'
+
+DATA:
+  ROOT_DIR_SOURCE: '/data/doc_med_release' # path of the source data
+  ROOT_DIR_TARGET: '/data/wpi' # path to the target data
+  SOURCE_IMG_EXTENSION: 'jpg'
+  TARGET_IMG_EXTENSION: 'jpg'
+  CLASSES:
+    -  '__background__'
+    - 'text'
+    #- 'listitem'
+    #- 'heading'
+    #- 'table'
+    -  'figure'
+
+
+TRAIN:
+  FPA: True
+  RA: True # whether to use region alignment layer
+  SOURCE_TXT_FILE: 'trainval'
+  TARGET_TXT_FILE: 'train'
+  STRONG_AUGMENT: True
+  BATCH_SIZE: 1
+  EPOCHS: 15
+  OPT: 'sgd' # Optimizer
+  LR_SCHEDULER: 'multisteplr'
+  LAMBDA1: 0.1 # hyperparameter-controls the trade-off between detection loss and fpa loss
+  LAMBDA2: 0.1 # hyperparameter-controls the trade-off between detection loss and ra loss
+
+TEST:
+  TARGET_EVAL_TXT_FILE: 'test'
+
+
+
+
+

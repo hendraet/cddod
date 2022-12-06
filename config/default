@@ -1,0 +1,41 @@
+# this is where your enroot images (.sqsh files) are stored
+default_value ENROOT_IMAGE_HOME "/enroot_share/${USER}"
+
+# output enroot tag
+default_value TARGET_TAG "YOUR_TARGET_TAG"
+
+# output enroot .sqsh file (usually ${TARGET_TAG}.sqsh)
+default_value TARGET_SQSH "${TARGET_TAG}.sqsh"
+
+# the script to run for installation
+default_value INSTALLATION_SCRIPT "00_install.sh"
+
+# the docker base image for the build script(s)
+default_value BASE_IMAGE "docker://nvidia/cuda:11.3.1-devel-ubuntu20.04"
+
+# send the e-mail about job changes to the following email (make sure you change it to your e-mail and username)
+default_value_for_user username EMAIL "YOUR_EMAIL"
+
+# debug level (setting this to 1 will increase output for all commands after exporting this file)
+#default_value VERBOSITY 0
+
+# the debug port for PyCharm Debugging (see README.md)
+export REMOTE_PYCHARM_DEBUG_PORT="YOUR_PORT_NUMBER"
+
+# make enroot container writable (environment variable for enroot)
+export ENROOT_ROOTFS_WRITABLE=yes
+
+# remap to user instead of root (environment variable for enroot)
+export ENROOT_REMAP_ROOT=yes
+
+# stop python from buffering its output (environment variable for python)
+export PYTHONUNBUFFERED=x
+
+# for generating the hash() of the types covered by the hash randomization.
+# range [0,4294967295]. Specifying the value 0 will disable hash randomization.
+export PYTHONHASHSEED=2022
+
+# change according to your folder
+default_value PRE_TRAINED_MODELS "${PROJECT_ROOT}/pretrained_models"
+
+default_value DATA_DIR /home/datasets/vision/document_object_detection
