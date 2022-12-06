@@ -52,10 +52,9 @@ be found in [requirements](src/requirements.txt) for setting up the enviornment.
 * Titanx (Pascal), GTX TitanX
 
 ## Project folder contents
-In this project, we followed the project template from Hasso Plattner Institute 
-[[link]](https://gitlab.hpi.de/deeplearning/students/project-template). Most of the 
-contents below are just a reproduction of the original project template. The 
-contents of the project folder are the following. 
+In this project, we followed the project template from Hasso Plattner Institute, which is a helper for running scripts on slurm clusters. 
+Most of the contents below are just a reproduction of the original project template.
+The contents of the project folder are the following. 
 * Config file folder for installation: [config](config)
 * Installation scripts (enroot): [install](install)
 * Management scripts (slurm): [scripts](scripts)
