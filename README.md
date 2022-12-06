@@ -1,4 +1,4 @@
-## Cross Domain Adaptation for Object Detection in Historical Art Sales Catalogs
+# Cross Domain Adaptation for Object Detection in Historical Art Sales Catalogs
 
 Object detection in documents is a challenging task. It is even more difficult to train a
 detector when only a fully unlabeled dataset is available. The performance of a trained
@@ -23,7 +23,9 @@ and target domains, the model performance in detecting the text is comparatively
 
 ![ALT](architecture_cddod.png "Cddod architecture")*Cddod architecture followed in this work. Adapated from [[1]](https://arxiv.org/pdf/2003.13197.pdf)*
 
+# Acknowledgment
 
+The code in this repository was mainly developed by [Binoy Chacko](https://github.com/b-cko) as part of a project seminar.
 
 # Description
 The aim of this project is to train an object detector for detecting _text_ and
